@@ -7,7 +7,7 @@ import { logIn, logOut } from '../actions';
 
 class Login extends Component {
   state = {
-    name: '',
+    username: '',
     password: ''
   }
 
@@ -36,7 +36,7 @@ class Login extends Component {
       <div>
         {!this.props.auth.isLoggedIn ?
           <div>
-            <form onSubmit={this.handleSignup}>
+            <form onSubmit={this.handleLoginSubmit}>
               <label>Username</label>
               <input
                 type='text'
