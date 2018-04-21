@@ -2,10 +2,18 @@ const baseUrl = 'http://localhost:3000/api'
 
 class AuthAdapter {
 
+  static createUser(user) {
+    return fetch(`${baseUrl}/users`, {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify(user)
+    })
+  }
+
   static login(loginParams) {
     return fetch(`${baseUrl}/auth`, {
       method: 'POST',
-      headers: headers(),
+      headers: authHeaders(),
       body: JSON.stringify(loginParams)
     }).then(res => res.json())
   }
@@ -21,9 +29,18 @@ class AuthAdapter {
 function headers() {
   return {
     'content-type': 'application/json',
+    'accept': 'application/json'
+  }
+}
+
+function authHeaders() {
+  return {
+    'content-type': 'application/json',
     'accept': 'application/json',
     'Authorization': localStorage.getItem('jwt')
   }
 }
+
+
 
 export default AuthAdapter

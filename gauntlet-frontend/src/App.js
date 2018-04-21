@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { logIn, logOut } from './actions'
-import AuthAdapter from './AuthAdapter'
+import { logIn, logOut } from './actions';
+import AuthAdapter from './AuthAdapter';
+
+// Components
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Home from './components/Home';
 
 import './App.css';
 
@@ -37,6 +42,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Login} />
+          <Route exact path='/home' component={Home} />
         </Switch>
       </div>
     );
