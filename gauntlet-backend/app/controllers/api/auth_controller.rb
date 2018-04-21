@@ -1,4 +1,5 @@
 class Api::AuthController < ApplicationController
+  before_action :authorize_user!, only: [:show]
 
   def show
     created_jwt = issue_token({id: current_user.id})

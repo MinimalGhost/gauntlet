@@ -1,5 +1,6 @@
 export default (state = {
   isLoggedIn: false,
+  user: null
 }, action) => {
   switch(action.type) {
     case 'LOG_IN':

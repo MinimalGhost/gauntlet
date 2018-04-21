@@ -55,7 +55,7 @@ class Login extends Component {
 
               <button type='submit'>Login</button>
             </form>
-            <p>Already have an account? <Link to='/login'>Login</Link></p>
+            <p>No account? <Link to='/signup'>Sign Up</Link></p>
           </div>
         :
           null

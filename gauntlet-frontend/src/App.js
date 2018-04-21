@@ -14,7 +14,7 @@ import './App.css';
 
 class App extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     if (localStorage.getItem('jwt')) {
       AuthAdapter.current_user()
       .then(user => {
@@ -41,7 +41,7 @@ class App extends Component {
           : null }
         <Switch>
           <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={Login} />
+          <Route exact path='/signup' component={SignUp} />
           <Route exact path='/home' component={Home} />
         </Switch>
       </div>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -6,7 +8,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <p>Welcome, {this.props.auth.user.username}</p>
+        { !this.props.auth.isLoggedIn ?
+          <Redirect to='/login' />
+          :
+          <div>
+            <p>Welcome, {this.props.auth.user.username}</p>
+          </div>
+        }
+
       </div>
     )
   }
@@ -15,14 +24,15 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: {
-      isLoggedIn: state.auth.isLoggedIn, ...state.auth.user
+      isLoggedIn: state.auth.isLoggedIn,
+      user: state.auth.user
     }
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    // actionToDispatch: actionToDispatch
+    // actionToDispatch : actionToDispatch
   }, dispatch)
 }
 

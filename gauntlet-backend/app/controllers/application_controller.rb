@@ -13,11 +13,11 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    @current_user ||= User.find_by(id: token_user_id)
+    current_user ||= User.find_by(id: token_user_id)
   end
 
   def token_user_id
-    decoded_token.first('id')
+    decoded_token.first['id']
   end
 
   def decoded_token
@@ -43,5 +43,5 @@ class ApplicationController < ActionController::API
   def algorithm
     "HS256"
   end
-  
+
 end
