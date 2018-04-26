@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthAdapter from '../AuthAdapter';
+import Adapter from '../Adapter';
 import { Link, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -19,7 +19,7 @@ class Login extends Component {
 
   handleLoginSubmit = (e) => {
     e.preventDefault()
-    AuthAdapter.login({
+    Adapter.login({
       username: this.state.username,
       password: this.state.password
     }).then(user => {

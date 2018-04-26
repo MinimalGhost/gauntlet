@@ -6,3 +6,7 @@ export function logIn(user) {
 export function logOut() {
   return { type: 'LOG_OUT' }
 }
+
+export function getInterviews(interviews) {
+  return { type: 'GET_INTERVIEWS', interviews: interviews }
+}

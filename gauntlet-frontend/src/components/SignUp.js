@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AuthAdapter from '../AuthAdapter';
+import Adapter from '../Adapter';
 import { Link, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ class SignUp extends Component {
 
   handleSignup = (e) => {
     e.preventDefault();
-    AuthAdapter.createUser(this.state)
+    Adapter.createUser(this.state)
       .then(res => res.json())
       .then(user => {
         if (!user.error) {

@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20180420141000) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180420141000) do
   create_table "interviews", force: :cascade do |t|
     t.string "contact"
     t.string "format"
+    t.integer "round"
     t.bigint "user_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false

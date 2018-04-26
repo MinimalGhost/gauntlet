@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:3000/api'
 
-class AuthAdapter {
+class Adapter {
 
   static createUser(user) {
     return fetch(`${baseUrl}/users`, {
@@ -24,6 +24,16 @@ class AuthAdapter {
     }).then(res => res.json())
   }
 
+  // interview creation
+
+  static createInterview(interview) {
+    return fetch(`${baseUrl}/interviews`, {
+      method: 'POST',
+      headers: authHeaders(),
+      body: JSON.stringify(interview)
+    }).then(res => res.json())
+  }
+
 }
 
 function headers() {
@@ -43,4 +53,4 @@ function authHeaders() {
 
 
 
-export default AuthAdapter
+export default Adapter

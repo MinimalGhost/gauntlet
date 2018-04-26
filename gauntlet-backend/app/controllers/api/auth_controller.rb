@@ -18,7 +18,7 @@ class Api::AuthController < ApplicationController
       created_jwt = issue_token({ id: user.id })
       render json: {
         user: UserSerializer.new(user),
-        jswt: created_jwt
+        jwt: created_jwt
       }
     else
       render json: {

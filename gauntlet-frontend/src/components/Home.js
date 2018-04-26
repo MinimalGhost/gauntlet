@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
+import { Redirect, Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+// import { addInterview } from '../actions';
+// import Adapter from '../Adapter';
 
 class Home extends Component {
+
+  // selectInterview = (e, interview) => {
+  //   console.log(interview.id);
+  //   Adapter.addInterview(company.id)
+  //   .then(this.props.addInterview)
+  // }
 
   render() {
     return (
@@ -13,6 +21,8 @@ class Home extends Component {
           :
           <div>
             <p>Welcome, {this.props.auth.user.username}</p>
+            <Link to='/new_interview'>Add a new Interview</Link>
+            <p>or select an existing interview process to continue</p>
           </div>
         }
 
@@ -26,13 +36,16 @@ const mapStateToProps = (state) => {
     auth: {
       isLoggedIn: state.auth.isLoggedIn,
       user: state.auth.user
+    },
+    interviewsReducer: {
+      interviews: state.interviewsReducer.interviews
     }
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    // actionToDispatch : actionToDispatch
+    // addInterview: addInterview
   }, dispatch)
 }
 

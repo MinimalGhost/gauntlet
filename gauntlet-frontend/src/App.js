@@ -3,20 +3,21 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { logIn, logOut } from './actions';
-import AuthAdapter from './AuthAdapter';
+import Adapter from './Adapter';
+import './App.css';
 
 // Components
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
+import InterviewForm from './components/InterviewForm';
 
-import './App.css';
 
 class App extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     if (localStorage.getItem('jwt')) {
-      AuthAdapter.current_user()
+      Adapter.current_user()
       .then(user => {
         if (!user.error) {
           this.props.logIn(user)
@@ -43,6 +44,7 @@ class App extends Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/home' component={Home} />
+          <Route exact path='/new_interview' component={InterviewForm} />
         </Switch>
       </div>
     );
