@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { InterviewList } from './InterviewList';
+import InterviewList from './InterviewList';
 // import { addInterview } from '../actions';
 // import Adapter from '../Adapter';
 
@@ -24,6 +24,7 @@ class Home extends Component {
             <p>Welcome, {this.props.auth.user.username}</p>
             <Link to='/new_interview'>Add a new Interview</Link>
             <p>or select an existing interview process to continue</p>
+            <InterviewList />
           </div>
         }
 
