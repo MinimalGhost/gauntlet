@@ -9,4 +9,4 @@ const InterviewItem = (props) => {
   )
 }
 
-export default DriverItem
+export default InterviewItem

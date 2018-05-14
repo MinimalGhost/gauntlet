@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { InterviewList } from './InterviewList';
 // import { addInterview } from '../actions';
 // import Adapter from '../Adapter';
 
